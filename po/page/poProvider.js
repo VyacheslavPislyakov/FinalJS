@@ -1,11 +1,9 @@
 var PAGE_OBJECT_MAP = {
     "home": "./homePage",
-    "results": "./resultsPage",
-    "join": "./joinPage"
-
+    "shoppingPlannerPage": "./shoppingPlannerPage",
+    "builderCar": "./builderCarPage"
 };
 
 module.exports.getPageObjects = function (pageName) {
     return require(PAGE_OBJECT_MAP[pageName]);
-
 };

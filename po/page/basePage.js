@@ -4,8 +4,6 @@ var BasePage = function () {
 			return browser.get(this.url);
 		});
 	};
-
-
 };
 
 module.exports = new BasePage();
