@@ -31,9 +31,12 @@ defineSupportCode(({Given, When, Then}) => {
 		});
 	});
 
-	Then(/^I should see Platinum by \$49,930$/, function (car) {
-
+	Then(/^I should see Platinum by 49,930$/, function (car) {
+		let elem = element(by.css('#main-container > div > div > div > div > div.row > div.cyp-ctas.col-xs-12.col-sm-6.build-your-own > div > div > img'));
+		return browser.wait(protractor.ExpectedConditions.visibilityOf(elem), 5000).then(() =>{
+			return elem.click();
+		});
 	});
 
-	
+
 });

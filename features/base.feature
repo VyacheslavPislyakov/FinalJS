@@ -15,4 +15,4 @@ Feature: Basic test
         Then I check "SUV & Crossover"
         Then I should choose "EXPLORER"
         When I should insert ZIP CODE "14092"
-        Then I should see Platinum by $49,930
+        Then I should see Platinum by 49,930
