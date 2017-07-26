@@ -12,8 +12,6 @@ exports.config = {
 		require: [
 			'step_definitions/*.js',
 			'support/*.js',
-			// './env.js',
-			// './hooks.js'
 		],
 		format: 'pretty'
 	},
