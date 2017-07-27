@@ -20,7 +20,7 @@ exports.config = {
 	},
 
 	onPrepare: function () {
-	    // browser.manage().window().setSize(1200, 900);
+		// browser.manage().window().setSize(1200, 900);
 		browser.manage().window().maximize();
 	}
 

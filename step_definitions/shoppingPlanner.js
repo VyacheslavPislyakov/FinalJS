@@ -1,5 +1,4 @@
 var {defineSupportCode} = require('cucumber');
-var poProvider = require('../po/page/poProvider')
 
 defineSupportCode(({Given, Then, When}) => {
 	When('I should build the car', function () {

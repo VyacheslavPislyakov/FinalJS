@@ -1,24 +1,10 @@
-// // var provider = require('../po/page/poProvider');
-// var advertisement = require('../po/common/advertisement')
-
 var {defineSupportCode} = require('cucumber');
 var poProvider = require('../po/page/poProvider')
+var homePage = require('../po/page/homePage');
 
 defineSupportCode(({Given, When, Then}) => {
 	Then(/^I submit on Locate a Dealer$/, function () {
-		return element(by.id('IPEinvL')).isPresent().then(res => {
-			if (res) {
-				return element(by.id('no')).click();
-			}
-		}).then(() => {
-			// let dealerships = element(by.xpath('/html/body/header/div[2]/nav/div/div[2]/ul[2]/li[2]/a'));
-			return element(by.xpath('/html/body/header/div[2]/nav/div/div[2]/ul[2]/li[2]/a'));
-			// var self = this;
-		}).then(el => {
-			return el.click();
-		}).then(() => {
-			return require('../po/page/dealerShipsPage');
-		})
+		return homePage.clickToLocateDealer();
     });
 
 	When(/^I should on Shopping Planner$/, function () {
