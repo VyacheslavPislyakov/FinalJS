@@ -9,13 +9,15 @@ defineSupportCode(({Given, When, Then}) => {
 	});
 
 	Then(/^I should see a list "([^"]*)" of the Dealers near me$/, function (result) {
-		return dealershipsPage.listResultsOfTheDealers().then(res => {
+		return dealershipsPage.listResultsOfTheDealers()
+		.then(res => {
 			return expect(res).to.equal(result);
 		})
 	});
 
 	Then(/^I should see the name of the first Dealer would be "([^"]*)"$/, function (firstName) {
-		return dealershipsPage.getTheNameOfTheFirstDealer().then(res => {
+		return dealershipsPage.getTheNameOfTheFirstDealer()
+		.then(res => {
 			return expect(res).to.equal(firstName);
 		})
 	});
