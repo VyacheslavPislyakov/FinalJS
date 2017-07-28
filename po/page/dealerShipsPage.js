@@ -11,9 +11,6 @@ function DealerShipsPage() {
 
 	this.clickToLocateDealer = function() {
 		var self = this;
-		// return browser.wait(protractor.ExpectedConditions.presenceOf(self.inputElement), 5000).then(() => {
-		// 	return browser.executeScript("arguments[0].scrollIntoView()", self.inputElement);
-		// }).then(() => {
 		return Helpers.findAndScroll(self.inputElement).then(() => {
 			return self.inputElement.sendKeys(self.ZIPCODE);
 		}).then(() => {
@@ -23,25 +20,11 @@ function DealerShipsPage() {
 
 	this.listResultsOfTheDealers = function() {
 		var self = this;
-		// return browser.wait(protractor.ExpectedConditions.presenceOf(self.results), 5000).then(() => {
-		// 	return browser.executeScript("arguments[0].scrollIntoView()", self.results);
-		// }).then(() => {
-		// 	return self.results.getText().then(res => {
-		// 		return res;
-		// 	});
-		// })
 		return Helpers.findAndScrollAndGetText(self.results);
 	}
 
 	this.getTheNameOfTheFirstDealer = function() {
 		var self = this;
-		// return browser.wait(protractor.ExpectedConditions.visibilityOf(self.firstNameOfTheDealer), 5000).then(() => {
-		// 	return browser.executeScript("arguments[0].scrollIntoView(true)", self.firstNameOfTheDealer);
-		// }).then(() => {
-		// 	return self.firstNameOfTheDealer.getText().then(res => {
-		// 		return res;
-		// 	})
-		// });
 		return Helpers.findAndScrollAndGetText(self.firstNameOfTheDealer);
 	}
 }

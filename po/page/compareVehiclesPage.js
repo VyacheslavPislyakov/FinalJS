@@ -1,4 +1,5 @@
 var BasePage = require('./basePage');
+var Helpers = require('../common/Helpers')
 
 function CompareVehiles() {
 
@@ -17,107 +18,49 @@ function CompareVehiles() {
 
 	this.setFilterEcoBoost = function () {
 		var self = this;
-		// let elem = element(by.css('div:nth-child(3) > div > ul > li:nth-child(2) > span > span.txt-label.ng-binding'));
-		return browser.wait(protractor.ExpectedConditions.visibilityOf(self.itemFilterEcoBoost), 5000).then(() => {
-			return browser.executeScript("arguments[0].scrollIntoView()", self.itemFilterEcoBoost);
-		}).then(() =>{
-			return self.itemFilterEcoBoost.click();
-		});
+		return Helpers.findAndScrollAndClick(self.itemFilterEcoBoost);
+
+
 	}
 
 	this.setFilterSuvAndCrossover = function () {
 		var self = this;
-		// let elem = element(by.css('div:nth-child(4) > div > ul > li:nth-child(4) > span > span.txt-label.ng-binding'));
-		return browser.wait(protractor.ExpectedConditions.visibilityOf(self.FilterSuvAndCrossover), 5000).then(() => {
-			return browser.executeScript("arguments[0].scrollIntoView()", self.FilterSuvAndCrossover);
-		}).then(() =>{
-			return self.FilterSuvAndCrossover.click();
-		});
+		return Helpers.findAndScrollAndClick(self.FilterSuvAndCrossover);
 	}
 
 	this.chooseExplorerForCompare = function () {
 		var self = this;
-		return browser.wait(protractor.ExpectedConditions.visibilityOf(self.carExplorer), 5000).then(() => {
-			return browser.executeScript("arguments[0].scrollIntoView(false)", self.carExplorer)
-		}).then(() =>{
-			return self.carExplorer.click();
-		});
+		return Helpers.findAndScrollAndClickFalse(self.carExplorer);
 	}
 
 	this.chooseSecondCarForCompare = function () {
 		var self = this;
-		// let elem = element.all(by.css('#trim384610 > div > div.image-checkbox > label > i')).first();
-		return browser.wait(protractor.ExpectedConditions.visibilityOf(self.secondCarForCompare), 5000).then(() => {
-			return browser.executeScript("arguments[0].scrollIntoView(false)", self.secondCarForCompare)
-		}).then(() =>{
-			return self.secondCarForCompare.click();
-		});
+		return Helpers.findAndScrollAndClickFalse(self.secondCarForCompare);
 	}
 
 	this.clickCompareButton = function () {
 		var self = this;
-		// let elem = element.all(by.css('div:nth-child(1) > button')).first();
-		return browser.wait(protractor.ExpectedConditions.visibilityOf(self.buttonOfCompare), 5000).then(() => {
-			return browser.executeScript("arguments[0].scrollIntoView(false)", self.buttonOfCompare)
-		}).then(() =>{
-			return self.buttonOfCompare.click();
-		});
+		return Helpers.findAndScrollAndClickFalse(self.buttonOfCompare);
 	}
 
 	this.getCityConsumptionFirstModification = function () {
 		var self = this;
-		return browser.wait(protractor.ExpectedConditions.visibilityOf(self.cityConsumptionFirstModification), 5000)
-		.then(() => {
-			return browser.executeScript("arguments[0].scrollIntoView(false)", self.cityConsumptionFirstModification)
-		}).then(() =>{
-			return self.cityConsumptionFirstModification.getText()
-			.then(res => {
-				// console.log('res ' + parseInt(res));
-				return parseInt(res);
-			})
-		})
+		return Helpers.findAndScrollAndGetTextFalse(self.cityConsumptionFirstModification);
 	}
 
 	this.getCityConsumptionSecondModification = function () {
 		var self = this;
-		return browser.wait(protractor.ExpectedConditions.visibilityOf(self.cityConsumptionSecondModification), 5000)
-		.then(() => {
-			return browser.executeScript("arguments[0].scrollIntoView(false)", self.cityConsumptionSecondModification)
-		}).then(() =>{
-			return self.cityConsumptionSecondModification.getText()
-			.then(res => {
-				// console.log('res 2' + parseInt(res));
-				return parseInt(res);
-			})
-		})
+		return Helpers.findAndScrollAndGetTextFalse(self.cityConsumptionSecondModification);
 	}
 
 	this.getHighwayConsumptionFirstModification = function () {
 		var self = this;
-		return browser.wait(protractor.ExpectedConditions.visibilityOf(self.highwayConsumptionFirstModification), 5000)
-		.then(() => {
-			return browser.executeScript("arguments[0].scrollIntoView(false)", self.highwayConsumptionFirstModification)
-		}).then(() =>{
-			return self.highwayConsumptionFirstModification.getText()
-			.then(res => {
-				// console.log('res ' + parseInt(res));
-				return parseInt(res);
-			})
-		})
+		return Helpers.findAndScrollAndGetTextFalse(self.highwayConsumptionFirstModification);
 	}
 
 	this.getHighwayConsumptionSecondModification = function () {
 		var self = this;
-		return browser.wait(protractor.ExpectedConditions.visibilityOf(self.highwayConsumptionSecondModification), 5000)
-		.then(() => {
-			return browser.executeScript("arguments[0].scrollIntoView(false)", self.highwayConsumptionSecondModification)
-		}).then(() =>{
-			return self.highwayConsumptionSecondModification.getText()
-			.then(res => {
-				// console.log('res 2' + parseInt(res));
-				return parseInt(res);
-			})
-		})
+		return Helpers.findAndScrollAndGetTextFalse(self.highwayConsumptionSecondModification);
 	}
 
 }

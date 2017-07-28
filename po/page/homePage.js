@@ -23,12 +23,9 @@ function HomePage() {
 		let self = this;
 		return this.closeBanner()
 		.then(() => {
-			// return browser.wait(protractor.ExpectedConditions.visibilityOf(self.buttonLocateDealer), 5000).then(() => {
-			// 	return browser.executeScript("arguments[0].scrollIntoView(false)", self.buttonLocateDealer);
-			// }).then(() => {
-			// 	return self.buttonLocateDealer.click();
-			// })
 			return Helpers.findAndScrollAndClickFalse(self.buttonLocateDealer);
+		}).then(() =>{
+			require('../page/dealerShipsPage');
 		})
 	}
 
@@ -36,11 +33,6 @@ function HomePage() {
 		let self = this;
 		return this.closeBanner()
 		.then(() => {
-			// return browser.wait(protractor.ExpectedConditions.visibilityOf(self.buttonBuildAndPrice), 5000).then(() => {
-			// 	return browser.executeScript("arguments[0].scrollIntoView(false)", self.buttonBuildAndPrice);
-			// }).then(() => {
-			// 	return self.buttonBuildAndPrice.click();
-			// })
 			return Helpers.findAndScrollAndClickFalse(self.buttonBuildAndPrice);
 		})
 	}

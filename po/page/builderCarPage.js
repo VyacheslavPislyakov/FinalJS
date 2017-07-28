@@ -18,73 +18,35 @@ function BuilderCarPage() {
 
 	this.setFilterEcoBoost = function () {
 		var self = this;
-		// return browser.wait(protractor.ExpectedConditions.visibilityOf(self.itemFilterEcoBoost), 5000).then(() => {
-		// 	return browser.executeScript("arguments[0].scrollIntoView()", self.itemFilterEcoBoost);
-		// }).then(() =>{
-		// 	return self.itemFilterEcoBoost.click();
-		// });
 		return Helpers.findAndScrollAndClick(self.itemFilterEcoBoost);
 	}
 
 	this.setFilterSuvAndCrossover = function () {
 		var self = this;
-		// return browser.wait(protractor.ExpectedConditions.visibilityOf(self.FilterSuvAndCrossover), 5000).then(() => {
-		// 	return browser.executeScript("arguments[0].scrollIntoView()", self.FilterSuvAndCrossover);
-		// }).then(() =>{
-		// 	return self.FilterSuvAndCrossover.click();
-		// });
 		return Helpers.findAndScrollAndClick(self.FilterSuvAndCrossover);
 	}
 
 	this.setExplorer = function () {
 		var self = this;
-		// return browser.wait(protractor.ExpectedConditions.visibilityOf(self.carExplorer), 5000).then(() => {
-		// 	return browser.executeScript("arguments[0].scrollIntoView(false)", self.carExplorer)
-		// }).then(() =>{
-		// 	return self.carExplorer.click();
-		// });
-
 		return Helpers.findAndScrollAndClickFalse(self.carExplorer);
 	}
 
 	this.insertZipCode = function () {
 		var self = this;
-		return browser.wait(protractor.ExpectedConditions.visibilityOf(self.inputZipCode), 5000).then(() =>{
-			return browser.executeScript("arguments[0].scrollIntoView(false)", self.inputZipCode);
-		}).then(() => {
+		return Helpers.findAndScrollFalse(self.inputZipCode).then(() => {
 			return self.inputZipCode.sendKeys(self.ZIPCODE)
 		}).then(() => {
 			return browser.actions().sendKeys(protractor.Key.ENTER).perform();
 		});
-
-
 	}
 
 	this.showBuildYourOwnCar = function () {
 		var self = this;
-		// return browser.wait(protractor.ExpectedConditions.visibilityOf(self.elementBuildYourOwnCar), 5000).then(() =>{
-		// 	return browser.executeScript("arguments[0].scrollIntoView(false)", self.elementBuildYourOwnCar);
-		// }).then(() => {
-		// 	return self.elementBuildYourOwnCar.click();
-		// });
-
 		return Helpers.findAndScrollAndClickFalse(self.elementBuildYourOwnCar);
 	}
 
 	this.checkModel = function () {
 		var self = this;
-		// return browser.wait(protractor.ExpectedConditions.visibilityOf(self.imageOfTheCar), 5000).then(() => {
-		// 	return browser.executeScript("arguments[0].scrollIntoView()", self.imageOfTheCar);
-		// }).then(() => {
-		// 	return browser.wait(protractor.ExpectedConditions.visibilityOf(self.elementModificationOfTheCar), 5000).then(() => {
-		// 		return browser.executeScript("arguments[0].scrollIntoView()", self.elementModificationOfTheCar);
-		// 	}).then(() => {
-		// 		return self.elementModificationOfTheCar.getText().then(res => {
-		// 			return res;
-		// 		})
-		// 	});
-		// })
-
 		return Helpers.findAndScroll(self.imageOfTheCar).then(() => {
 			return Helpers.findAndScrollAndGetText(self.elementModificationOfTheCar);
 		})
@@ -92,19 +54,6 @@ function BuilderCarPage() {
 
 	this.checkCost = function () {
 		var self = this;
-		// return browser.wait(protractor.ExpectedConditions.visibilityOf(self.imageOfTheCar), 5000).then(() => {
-		// 	return browser.executeScript("arguments[0].scrollIntoView()", self.imageOfTheCar);
-		// })
-		// .then(() => {
-		// 	return browser.wait(protractor.ExpectedConditions.visibilityOf(self.elementCostOfTheCar), 5000).then(() => {
-		// 		return browser.executeScript("arguments[0].scrollIntoView()", self.elementCostOfTheCar);
-		// 	}).then(() => {
-		// 		return self.elementCostOfTheCar.getText().then(res => {
-		// 			return res
-		// 		});
-		// 	})
-		// });
-
 		return Helpers.findAndScroll(self.imageOfTheCar).then(() => {
 			return Helpers.findAndScrollAndGetText(self.elementCostOfTheCar);
 		})

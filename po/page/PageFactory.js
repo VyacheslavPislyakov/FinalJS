@@ -15,15 +15,15 @@ var homePage = require('./homePage'),
 
 
 var PageFactory = function () {
-    this.currentPage = '';
+    // this.currentPage = '';
     this.getPage = function (name) {
         var pageMap = {
             "home": homePage,
             "build": buildPage,
             "compare": comparePage
         };
-        this.currentPage = pageMap[name];
-        return this.currentPage;
+        // this.currentPage = pageMap[name];
+        return pageMap[name];
     }
 }
 

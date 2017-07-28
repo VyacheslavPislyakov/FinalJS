@@ -9,7 +9,6 @@ Feature: Basic test
 
     Scenario: Check availability car and there cost it
         Given I am on "build" page
-        #When I should click build
         Then I check EcoBoost
         Then I check SUV & Crossover
         Then I should choose EXPLORER
@@ -20,7 +19,6 @@ Feature: Basic test
 
 	Scenario: Compare two modification of the car
         Given I am on "compare" page
-        #When I should click Shop
 		When I check EcoBoost for compare
 		When I check SUV & Crossover for compare
 		Then I should choose EXPLORER for compare

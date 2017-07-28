@@ -7,5 +7,4 @@ defineSupportCode(({Given, When, Then}) => {
 	Given(/^I am on "([^"]*)" page$/, function (pageName) {
 		return PageFactory.getPage(pageName).visit();
     });
-
 });
