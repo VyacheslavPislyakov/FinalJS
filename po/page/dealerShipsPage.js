@@ -4,9 +4,9 @@ var Helpers = require('../common/Helpers')
 function DealerShipsPage() {
 	this.url = 'https://owner.ford.com/dealer-locator.html#/';
 
-	this.inputElement = element(by.css('#dealerSearchBox'));
-	this.results = element(by.css('span:nth-child(10) > span.ng-binding'));
-	this.firstNameOfTheDealer = element(by.css('li.fls-dealer-search-results-item.scroll-item-0 > div > h3 > a'));
+	this.inputElement = element(by.css('#ford-dealer-search-form > div.search-wrap > div > input'));
+	this.results = element(by.css('div.tabs.ng-scope.initialized > div > div > span'));
+	this.firstNameOfTheDealer = element(by.css('li.dealer.summary.ng-scope.current > div > div.content > h3'));
 	this.ZIPCODE = 14304;
 
 	this.clickToLocateDealer = function() {

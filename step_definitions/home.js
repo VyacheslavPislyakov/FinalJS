@@ -1,5 +1,5 @@
 var {defineSupportCode} = require('cucumber');
-var poProvider = require('../po/page/poProvider')
+// var poProvider = require('../po/page/poProvider')
 var homePage = require('../po/page/homePage');
 
 defineSupportCode(({Given, When, Then}) => {
@@ -11,27 +11,27 @@ defineSupportCode(({Given, When, Then}) => {
 		return homePage.clickToBuildAndPrice();
 	});
 
-	When(/^I should click Shop$/, function () {
-		return element(by.id('IPEinvL')).isPresent().then(res => {
-			if (res) {
-				return element(by.id('no')).click();
-			}
-		}).then(() => {
-			let elem = element(by.css('ul:nth-child(1) > li.dropdown.drop-parent.shop > a'));
-			return browser.wait(protractor.ExpectedConditions.visibilityOf(elem), 5000).then(() => {
-				return browser.executeScript("arguments[0].scrollIntoView(false)", elem);
-			}).then(() => {
-				return elem.click();
-			})
-		}).then(() => {
-			let elem = element.all(by.css('div > nav > div > div > div:nth-child(1) > ul > li:nth-child(4) > a')).first();
-			return browser.wait(protractor.ExpectedConditions.visibilityOf(elem), 5000).then(() => {
-				return browser.executeScript("arguments[0].scrollIntoView(false)", elem);
-			}).then(() => {
-				return elem.click();
-			})
-		})
-	});
+	// When(/^I should click Shop$/, function () {
+	// 	return element(by.id('IPEinvL')).isPresent().then(res => {
+	// 		if (res) {
+	// 			return element(by.id('no')).click();
+	// 		}
+	// 	}).then(() => {
+	// 		let elem = element(by.css('ul:nth-child(1) > li.dropdown.drop-parent.shop > a'));
+	// 		return browser.wait(protractor.ExpectedConditions.visibilityOf(elem), 5000).then(() => {
+	// 			return browser.executeScript("arguments[0].scrollIntoView(false)", elem);
+	// 		}).then(() => {
+	// 			return elem.click();
+	// 		})
+	// 	}).then(() => {
+	// 		let elem = element.all(by.css('div > nav > div > div > div:nth-child(1) > ul > li:nth-child(4) > a')).first();
+	// 		return browser.wait(protractor.ExpectedConditions.visibilityOf(elem), 5000).then(() => {
+	// 			return browser.executeScript("arguments[0].scrollIntoView(false)", elem);
+	// 		}).then(() => {
+	// 			return elem.click();
+	// 		})
+	// 	})
+	// });
 
 
 	// When(/^I should choose a car$/, function () {

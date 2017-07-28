@@ -46,7 +46,7 @@ defineSupportCode(({Given, When, Then}) => {
 	});
 
 	Then(/^I should see car$/, function () {
-		// let elem = element(by.css('div.cyp-ctas.col-xs-12.col-sm-6.build-your-own > div > div > img'));
+		// let elem = element(by.css('#main-container > div > div > div > div > div.row > div.cyp-ctas.col-xs-12.col-sm-6.build-your-own'));
 		// return browser.wait(protractor.ExpectedConditions.visibilityOf(elem), 5000).then(() =>{
 		// 	return browser.executeScript("arguments[0].scrollIntoView(false)", elem);
 		// }).then(() => {
@@ -56,18 +56,18 @@ defineSupportCode(({Given, When, Then}) => {
 	});
 
 	Then(/^I should see "([^"]*)" by "([^"]*)"$/, function (model, cost) {
-		// let elem = element(by.css('div:nth-child(5) > img'));
-		// return browser.wait(protractor.ExpectedConditions.visibilityOf(elem), 5000).then(() => {
-		// 	return browser.executeScript("arguments[0].scrollIntoView()", elem);
+		// let modelCar = element(by.css('#main-container > div > div > div.content-container.full-height.ng-scope > div > div:nth-child(6) > div.choose-model > div.col-sm-12.select-model-title > div > h2'));
+		// return browser.wait(protractor.ExpectedConditions.visibilityOf(modelCar), 5000).then(() => {
+		// 	return browser.executeScript("arguments[0].scrollIntoView()", modelCar);
 		// }).then(() => {
-		// 	element(by.css('div.flex-parent.flex-left > div:nth-child(5) > div.centered-text > h4 > a > span')).getText().then(res => {
-		// 		expect(res).to.equal(model)
-		// 	});
+		// 	element(by.css('#main-container > div > div > div.content-container.full-height.ng-scope > div > div:nth-child(6) > div.choose-model > div.col-sm-12.col-md-12.col-lg-4.choose-model-features-wrapper > div > div > div > div')).click();
+		// });
 		// }).then(() => {
 		// 	element(by.css('div:nth-child(5) > div.model-price-mileage > span:nth-child(1) > div')).getText().then(res => {
 		// 		expect(res).to.equal(cost)
 		// 	});
 		// });
+		
 		return builderCarPage.checkModel().then(resModel => {
 			return expect(resModel).to.equal(model);
 		}).then(() => {

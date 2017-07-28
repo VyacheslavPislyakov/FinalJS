@@ -2,7 +2,7 @@ var BasePage = require('./basePage');
 
 function CompareVehiles() {
 
-	this.url = 'http://shop.ford.com/showroom?linktype=compare&gnav=header-shop';
+	this.url = 'http://shop.ford.com/showroom?linktype=compare';
 
 	this.itemFilterEcoBoost = element(by.css('div:nth-child(3) > div > ul > li:nth-child(2) > span > span.txt-label.ng-binding'));
 	this.FilterSuvAndCrossover = element(by.css('div:nth-child(4) > div > ul > li:nth-child(4) > span > span.txt-label.ng-binding'));

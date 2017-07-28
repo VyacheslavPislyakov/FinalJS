@@ -1,4 +1,5 @@
 var BasePage = require('./basePage')
+var Helpers = require('../common/Helpers')
 
 function HomePage() {
 	this.url = 'http://www.ford.com/';
@@ -22,11 +23,12 @@ function HomePage() {
 		let self = this;
 		return this.closeBanner()
 		.then(() => {
-			return browser.wait(protractor.ExpectedConditions.visibilityOf(self.buttonLocateDealer), 5000).then(() => {
-				return browser.executeScript("arguments[0].scrollIntoView(false)", self.buttonLocateDealer);
-			}).then(() => {
-				return self.buttonLocateDealer.click();
-			})
+			// return browser.wait(protractor.ExpectedConditions.visibilityOf(self.buttonLocateDealer), 5000).then(() => {
+			// 	return browser.executeScript("arguments[0].scrollIntoView(false)", self.buttonLocateDealer);
+			// }).then(() => {
+			// 	return self.buttonLocateDealer.click();
+			// })
+			return Helpers.findAndScrollAndClickFalse(self.buttonLocateDealer);
 		})
 	}
 
@@ -34,11 +36,12 @@ function HomePage() {
 		let self = this;
 		return this.closeBanner()
 		.then(() => {
-			return browser.wait(protractor.ExpectedConditions.visibilityOf(self.buttonBuildAndPrice), 5000).then(() => {
-				return browser.executeScript("arguments[0].scrollIntoView(false)", self.buttonBuildAndPrice);
-			}).then(() => {
-				return self.buttonBuildAndPrice.click();
-			})
+			// return browser.wait(protractor.ExpectedConditions.visibilityOf(self.buttonBuildAndPrice), 5000).then(() => {
+			// 	return browser.executeScript("arguments[0].scrollIntoView(false)", self.buttonBuildAndPrice);
+			// }).then(() => {
+			// 	return self.buttonBuildAndPrice.click();
+			// })
+			return Helpers.findAndScrollAndClickFalse(self.buttonBuildAndPrice);
 		})
 	}
 }

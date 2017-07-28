@@ -8,7 +8,7 @@ defineSupportCode(({Given, When, Then}) => {
 		return dealershipsPage.clickToLocateDealer();
 	});
 
-	Then(/^I should see a list "([^"]*)" of the Dealers near me$/, function (result) {
+	Then(/^I should see a list of "([^"]*)"$/, function (result) {
 		return dealershipsPage.listResultsOfTheDealers()
 		.then(res => {
 			return expect(res).to.equal(result);
