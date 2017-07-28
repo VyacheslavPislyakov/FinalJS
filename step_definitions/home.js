@@ -1,5 +1,5 @@
 var {defineSupportCode} = require('cucumber');
-var homePage = require('../po/page/homePage');
+var homePage = require('../po/page/PageFactory').getPage('home');
 
 defineSupportCode(({Given, When, Then}) => {
 	Then(/^I submit on Locate a Dealer$/, function () {
