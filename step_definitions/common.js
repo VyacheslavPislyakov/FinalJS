@@ -1,4 +1,3 @@
-var homePage = require('../po/page/homePage');
 var PageFactory = require('../po/page/PageFactory');
 
 var {defineSupportCode} = require('cucumber');

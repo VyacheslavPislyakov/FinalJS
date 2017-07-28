@@ -1,5 +1,5 @@
 var BasePage = require('./basePage');
-var Helpers = require('../common/Helpers')
+var Helpers = require('../common/Helpers');
 
 function DealerShipsPage() {
 	this.url = 'https://owner.ford.com/dealer-locator.html#/';

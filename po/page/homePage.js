@@ -24,8 +24,6 @@ function HomePage() {
 		return this.closeBanner()
 		.then(() => {
 			return Helpers.findAndScrollAndClickFalse(self.buttonLocateDealer);
-		}).then(() =>{
-			require('../page/dealerShipsPage');
 		})
 	}
 
