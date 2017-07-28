@@ -4,7 +4,7 @@ function HomePage() {
 	this.url = 'http://www.ford.com/';
 
 	this.banner = element(by.id('IPEinvL'));
-	this.bannerButtonNo = element(by.id('no'))
+	this.bannerButtonNo = element(by.id('no'));
 	this.buttonLocateDealer  = element(by.xpath('/html/body/header/div[2]/nav/div/div[2]/ul[2]/li[2]/a'));
 	this.buttonBuildAndPrice = element(by.css('div.billboard-content > div > div > div > h5 > a'));
 
