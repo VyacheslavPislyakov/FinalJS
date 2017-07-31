@@ -1,8 +1,5 @@
 var expect = require('chai').expect;
 var {defineSupportCode} = require('cucumber');
-
-// var dealershipsPage = require('../po/page/dealerShipsPage');
-// var dealershipsPage = require('../po/page/PageFactory').getPage('dealerships');
 var PageFactory = require('../po/page/PageFactory');
 
 defineSupportCode(({Given, When, Then}) => {

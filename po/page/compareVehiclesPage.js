@@ -6,66 +6,110 @@ function CompareVehiles() {
 
 	this.url = 'http://shop.ford.com/showroom?linktype=compare';
 
-	this.itemFilterEcoBoost = element(by.css('div:nth-child(3) > div > ul > li:nth-child(2) > span > span.txt-label.ng-binding'));
-	this.FilterSuvAndCrossover = element(by.css('div:nth-child(4) > div > ul > li:nth-child(4) > span > span.txt-label.ng-binding'));
-	this.carExplorer = element.all(by.css('div:nth-child(3) > div > div.vehicle-title > div > strong')).first();
-	this.secondCarForCompare = element.all(by.css('#trim384610 > div > div.image-checkbox > label > i')).first();
-	this.buttonOfCompare = element.all(by.css('div:nth-child(1) > button')).first();
-	this.cityConsumptionFirstModification = element(by.css('#detailed-comparison > div > table > tbody > tr:nth-child(10) > td.changecolor0 > div.title-small.car-detail'));
-	this.cityConsumptionSecondModification = element(by.css('#detailed-comparison > div > table > tbody > tr:nth-child(10) > td.changecolor1 > div'));
-	this.highwayConsumptionFirstModification = element(by.css('#detailed-comparison > div > table > tbody > tr:nth-child(11) > td.changecolor0 > div.title-small.car-detail'));
-	this.highwayConsumptionSecondModification = element(by.css('#detailed-comparison > div > table > tbody > tr:nth-child(11) > td.changecolor1 > div'));
+	// this.itemFilterEcoBoost = element(by.css('div:nth-child(3) > div > ul > li:nth-child(2) > span > span.txt-label.ng-binding'));
+	// this.FilterSuvAndCrossover = element(by.css('div:nth-child(4) > div > ul > li:nth-child(4) > span > span.txt-label.ng-binding'));
+	// this.carExplorer = element.all(by.css('div:nth-child(3) > div > div.vehicle-title > div > strong')).first();
+	// this.secondCarForCompare = element.all(by.css('#trim384610 > div > div.image-checkbox > label > i')).first();
+	// this.buttonOfCompare = element.all(by.css('div:nth-child(1) > button')).first();
+	// this.cityConsumptionFirstModification = element(by.css('tr.d0:nth-child(10) > td:nth-child(2) > div:nth-child(2)'));
+	// this.cityConsumptionSecondModification = element(by.css('tr.d0:nth-child(10) > td:nth-child(3) > div:nth-child(1)'));
+	// this.highwayConsumptionFirstModification = element(by.css('tr.d1:nth-child(11) > td:nth-child(2) > div:nth-child(2)'));
+	// this.highwayConsumptionSecondModification = element(by.css('tr.d1:nth-child(11) > td:nth-child(3) > div:nth-child(1)'));
 
+	var elementsCompareVehiclesPage = {
+		itemFilterEcoBoost: {
+			locator: 'css',
+			isSingle: false,
+			value: 'li:nth-child(2) > span > span.txt-label.ng-binding'
+		},
+		FilterSuvAndCrossover: {
+			locator: 'css',
+			isSingle: false,
+			value: 'li:nth-child(4) > span > span.txt-label.ng-binding'
+		},
+		carExplorer: {
+			locator: 'css',
+			isSingle: false,
+			value: 'strong[data-ng-bind-template="EXPLORER"]'
+		},
+		secondCarForCompare: {
+			locator: 'css',
+			isSingle: false,
+			value: '#trim384610 > div > div.image-checkbox > label > i'
+		},
+		buttonOfCompare: {
+			locator: 'css',
+			isSingle: false,
+			value: 'div:nth-child(1) > button'
+		},
+		cityConsumptionFirstModification: {
+			locator: 'css',
+			isSingle: true,
+			value: 'tr.d0:nth-child(10) > td:nth-child(2) > div:nth-child(2)'
+		},
+		cityConsumptionSecondModification: {
+			locator: 'css',
+			isSingle: true,
+			value: 'tr.d0:nth-child(10) > td:nth-child(3) > div:nth-child(1)'
+		},
+		highwayConsumptionFirstModification: {
+			locator: 'css',
+			isSingle: true,
+			value: 'tr.d1:nth-child(11) > td:nth-child(2) > div:nth-child(2)'
+		},
+		highwayConsumptionSecondModification: {
+			locator: 'css',
+			isSingle: true,
+			value: 'tr.d1:nth-child(11) > td:nth-child(3) > div:nth-child(1)'
+		},
+	}
 
 	this.setFilterEcoBoost = function () {
 		var self = this;
-		return Helpers.findAndScrollAndClick(self.itemFilterEcoBoost);
-
-
+		return Helpers.findAndScrollAndClick(Helpers.getElementsByCSS(elementsCompareVehiclesPage.itemFilterEcoBoost.value).first());
 	}
 
 	this.setFilterSuvAndCrossover = function () {
 		var self = this;
-		return Helpers.findAndScrollAndClick(self.FilterSuvAndCrossover);
+		return Helpers.findAndScrollAndClick(Helpers.getElementsByCSS(elementsCompareVehiclesPage.FilterSuvAndCrossover.value).last());
 	}
 
 	this.chooseExplorerForCompare = function () {
 		var self = this;
-		return Helpers.findAndScrollAndClickFalse(self.carExplorer);
+		return Helpers.findAndScrollAndClickFalse(Helpers.getElementsByCSS(elementsCompareVehiclesPage.carExplorer.value).first());
 	}
 
 	this.chooseSecondCarForCompare = function () {
 		var self = this;
-		return Helpers.findAndScrollAndClickFalse(self.secondCarForCompare);
+		return Helpers.findAndScrollAndClickFalse(Helpers.getElementsByCSS(elementsCompareVehiclesPage.secondCarForCompare.value).first());
 	}
 
 	this.clickCompareButton = function () {
 		var self = this;
-		return Helpers.findAndScrollAndClickFalse(self.buttonOfCompare);
+		return Helpers.findAndScrollAndClickFalse(Helpers.getElementsByCSS(elementsCompareVehiclesPage.buttonOfCompare.value).first());
 	}
 
 	this.getCityConsumptionFirstModification = function () {
 		var self = this;
-		return Helpers.findAndScrollAndGetTextFalse(self.cityConsumptionFirstModification);
+		return Helpers.findAndScrollAndGetTextFalse(Helpers.getElementByCSS(elementsCompareVehiclesPage.cityConsumptionFirstModification.value));
 	}
 
 	this.getCityConsumptionSecondModification = function () {
 		var self = this;
-		return Helpers.findAndScrollAndGetTextFalse(self.cityConsumptionSecondModification);
+		return Helpers.findAndScrollAndGetTextFalse(Helpers.getElementByCSS(elementsCompareVehiclesPage.cityConsumptionSecondModification.value));
 	}
 
 	this.getHighwayConsumptionFirstModification = function () {
 		var self = this;
-		return Helpers.findAndScrollAndGetTextFalse(self.highwayConsumptionFirstModification);
+		return Helpers.findAndScrollAndGetTextFalse(Helpers.getElementByCSS(elementsCompareVehiclesPage.highwayConsumptionFirstModification.value));
 	}
 
 	this.getHighwayConsumptionSecondModification = function () {
 		var self = this;
-		return Helpers.findAndScrollAndGetTextFalse(self.highwayConsumptionSecondModification);
+		return Helpers.findAndScrollAndGetTextFalse(Helpers.getElementByCSS(elementsCompareVehiclesPage.highwayConsumptionSecondModification.value));
 	}
 
 }
 
-// CompareVehiles.prototype = BasePage;
 inheritator.inherits(BasePage, CompareVehiles);
 module.exports = CompareVehiles;

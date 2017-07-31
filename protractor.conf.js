@@ -14,26 +14,11 @@ exports.config = {
 		format: 'pretty'
 	},
 	capabilities: {
-		browserName: 'chrome'
+		browserName: process.env.BROWSER
 	},
 
 	onPrepare: function() {
 		browser.manage().window().maximize();
+		// browser.manage().window().setSize(1200, 900);
 	}
-
-
-	// var gulp = require('gulp'),
-	// 	cucumber = require('gulp-cucumber');
-	// gulp.task('cucumber', function() {
-	// 	util.env.browser ? process.env.BROWSER = util.env.browser : process.env.BROWSER = 'chrome';
-	// 	util.env.view ? process.env.VIEW = util.env.view : process.env.VIEW = 'desktop';
-	// 	return gulp.src('test/features/*').pipe(cucumber({
-	// 		'steps': 'step_definitions/*.js',
-	// 		'support': 'support/*.js',
-	// 	}));
-	// });
-
-
-
-
 };

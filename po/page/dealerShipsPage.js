@@ -5,15 +5,30 @@ var Helpers = require('../common/Helpers');
 function DealerShipsPage() {
 	this.url = 'https://owner.ford.com/dealer-locator.html#/';
 
-	this.inputElement = element(by.css('#ford-dealer-search-form > div.search-wrap > div > input'));
-	this.results = element(by.css('div.tabs.ng-scope.initialized > div > div > span'));
-	this.firstNameOfTheDealer = element(by.css('li.dealer.summary.ng-scope.current > div > div.content > h3'));
+	var elementsDealerShipsPage = {
+		inputElement: {
+			locator: 'css',
+			isSingle: true,
+			value: 'input.ng-invalid'
+		},
+		results: {
+			locator: 'css',
+			isSingle: true,
+			value: '.label.ng-binding.ng-scope'
+		},
+		firstNameOfTheDealer: {
+			locator: 'css',
+			isSingle: true,
+			value: 'li.dealer:nth-child(1) > div:nth-child(1) > div:nth-child(2) > h3:nth-child(1)'
+		}
+	}
+
 	this.ZIPCODE = 14304;
 
 	this.clickToLocateDealer = function() {
 		var self = this;
-		return Helpers.findAndScroll(self.inputElement).then(() => {
-			return self.inputElement.sendKeys(self.ZIPCODE);
+		return Helpers.findAndScroll(Helpers.getElementByCSS(elementsDealerShipsPage.inputElement.value)).then(() => {
+			return Helpers.getElementByCSS(elementsDealerShipsPage.inputElement.value).sendKeys(self.ZIPCODE);
 		}).then(() => {
 			return browser.actions().sendKeys(protractor.Key.ENTER).perform();
 		});
@@ -21,15 +36,15 @@ function DealerShipsPage() {
 
 	this.listResultsOfTheDealers = function() {
 		var self = this;
-		return Helpers.findAndScrollAndGetText(self.results);
+		return Helpers.findAndScrollAndGetText(Helpers.getElementByCSS(elementsDealerShipsPage.results.value));
+
 	}
 
 	this.getTheNameOfTheFirstDealer = function() {
 		var self = this;
-		return Helpers.findAndScrollAndGetText(self.firstNameOfTheDealer);
+		return Helpers.findAndScrollAndGetText(Helpers.getElementByCSS(elementsDealerShipsPage.firstNameOfTheDealer.value));
 	}
 }
 
-// DealerShipsPage.prototype = BasePage;
 inheritator.inherits(BasePage, DealerShipsPage);
 module.exports = DealerShipsPage;

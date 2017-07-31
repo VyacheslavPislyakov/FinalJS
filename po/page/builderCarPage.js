@@ -7,35 +7,77 @@ function BuilderCarPage() {
 	this.url = 'https://www.ford.com/showroom?linktype=build';
 
 	this.ZIPCODE = 14304;
-	this.itemFilterEcoBoost = element(by.css('div:nth-child(3) > div > ul > li:nth-child(2) > span > span.txt-label.ng-binding'));
-	this.FilterSuvAndCrossover = element(by.css('div:nth-child(4) > div > ul > li:nth-child(4) > span > span.txt-label.ng-binding'));
-	this.carExplorer = element.all(by.css('div:nth-child(3) > div > div.vehicle-title > div > strong')).first();
-	this.inputZipCode = element(by.css('div.zip-input-wrapper > input'));
-	this.elementBuildYourOwnCar = element(by.css('#main-container > div > div > div > div > div.row > div.cyp-ctas.col-xs-12.col-sm-6.build-your-own > div > div > img'));
-	this.imageOfTheCar = element(by.css('div:nth-child(5) > img'));
-	this.elementModificationOfTheCar = element(by.css('div.flex-parent.flex-left > div:nth-child(5) > div.centered-text > h4 > a > span'));
-	this.elementCostOfTheCar = element(by.css('div:nth-child(5) > div.model-price-mileage > span:nth-child(1) > div'));
+	// this.itemFilterEcoBoost = element.all(by.css('li:nth-child(2) > span > span.txt-label.ng-binding'));
+	// this.FilterSuvAndCrossover = element(by.css('li:nth-child(4) > span > span.txt-label.ng-binding'));
+	// this.carExplorer = element.all(by.css('strong[data-ng-bind-template="EXPLORER"]')).first();
+	// this.inputZipCode = element(by.css('div.zip-input-wrapper > input'));
+	// this.elementBuildYourOwnCar = element(by.css('div.cta-panel > div > img'));
+	// this.imageOfTheCar = element(by.css('div:nth-child(5) > img'));
+	// this.elementModificationOfTheCar = element(by.css('div.flex-parent.flex-left > div:nth-child(5) > div.centered-text > h4 > a > span'));
+	// this.elementCostOfTheCar = element(by.css('div:nth-child(5) > div.model-price-mileage > span:nth-child(1) > div'));
 
+	var elementsBuilderCarPage = {
+		itemFilterEcoBoost: {
+			locator: 'css',
+			isSingle: false,
+			value: 'li:nth-child(2) > span > span.txt-label.ng-binding'
+		},
+		FilterSuvAndCrossover: {
+			locator: 'css',
+			isSingle: false,
+			value: 'li:nth-child(4) > span > span.txt-label.ng-binding'
+		},
+		carExplorer: {
+			locator: 'css',
+			isSingle: false,
+			value: 'strong[data-ng-bind-template="EXPLORER"]'
+		},
+		inputZipCode: {
+			locator: 'css',
+			isSingle: true,
+			value: 'div.zip-input-wrapper > input'
+		},
+		elementBuildYourOwnCar: {
+			locator: 'css',
+			isSingle: false,
+			value: 'div.cta-panel > div > img'
+		},
+		imageOfTheCar: {
+			locator: 'css',
+			isSingle: true,
+			value: 'div:nth-child(5) > img'
+		},
+		elementModificationOfTheCar: {
+			locator: 'css',
+			isSingle: true,
+			value: 'div.centered-text > h4 > a > span'
+		},
+		elementCostOfTheCar: {
+			locator: 'css',
+			isSingle: true,
+			value: 'div.model-price-mileage > span:nth-child(1) > div'
+		},
+	}
 
 	this.setFilterEcoBoost = function () {
 		var self = this;
-		return Helpers.findAndScrollAndClick(self.itemFilterEcoBoost);
+		return Helpers.findAndScrollAndClick(Helpers.getElementsByCSS(elementsBuilderCarPage.itemFilterEcoBoost.value).first());
 	}
 
 	this.setFilterSuvAndCrossover = function () {
 		var self = this;
-		return Helpers.findAndScrollAndClick(self.FilterSuvAndCrossover);
+		return Helpers.findAndScrollAndClick(Helpers.getElementsByCSS(elementsBuilderCarPage.FilterSuvAndCrossover.value).last());
 	}
 
 	this.setExplorer = function () {
 		var self = this;
-		return Helpers.findAndScrollAndClickFalse(self.carExplorer);
+		return Helpers.findAndScrollAndClickFalse(Helpers.getElementsByCSS(elementsBuilderCarPage.carExplorer.value).first());
 	}
 
 	this.insertZipCode = function () {
 		var self = this;
-		return Helpers.findAndScrollFalse(self.inputZipCode).then(() => {
-			return self.inputZipCode.sendKeys(self.ZIPCODE)
+		return Helpers.findAndScrollFalse(Helpers.getElementByCSS(elementsBuilderCarPage.inputZipCode.value)).then(() => {
+			return Helpers.getElementByCSS(elementsBuilderCarPage.inputZipCode.value).sendKeys(self.ZIPCODE)
 		}).then(() => {
 			return browser.actions().sendKeys(protractor.Key.ENTER).perform();
 		});
@@ -43,26 +85,23 @@ function BuilderCarPage() {
 
 	this.showBuildYourOwnCar = function () {
 		var self = this;
-		return Helpers.findAndScrollAndClickFalse(self.elementBuildYourOwnCar);
+		return Helpers.findAndScrollAndClickFalse(Helpers.getElementsByCSS(elementsBuilderCarPage.elementBuildYourOwnCar.value).last());
 	}
 
 	this.checkModel = function () {
 		var self = this;
-		return Helpers.findAndScroll(self.imageOfTheCar).then(() => {
-			return Helpers.findAndScrollAndGetText(self.elementModificationOfTheCar);
+		return Helpers.findAndScroll(Helpers.getElementByCSS(elementsBuilderCarPage.imageOfTheCar.value)).then(() => {
+			return Helpers.findAndScrollAndGetText(Helpers.getElementsByCSS(elementsBuilderCarPage.elementModificationOfTheCar.value).last());
 		})
 	}
 
 	this.checkCost = function () {
 		var self = this;
-		return Helpers.findAndScroll(self.imageOfTheCar).then(() => {
-			return Helpers.findAndScrollAndGetText(self.elementCostOfTheCar);
+		return Helpers.findAndScroll(Helpers.getElementByCSS(elementsBuilderCarPage.imageOfTheCar.value)).then(() => {
+			return Helpers.findAndScrollAndGetText(Helpers.getElementsByCSS(elementsBuilderCarPage.elementCostOfTheCar.value).last());
 		})
 	}
-
-
 }
 
-// BuilderCarPage.prototype = BasePage;
 inheritator.inherits(BasePage, BuilderCarPage);
 module.exports = BuilderCarPage;
