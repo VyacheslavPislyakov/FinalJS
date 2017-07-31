@@ -1,4 +1,5 @@
-var BasePage = require('./basePage');
+var inheritator = require('../../support/inheritance');
+var BasePage = require('./BasePage');
 var Helpers = require('../common/Helpers')
 
 function CompareVehiles() {
@@ -65,5 +66,6 @@ function CompareVehiles() {
 
 }
 
-CompareVehiles.prototype = BasePage;
-module.exports = new CompareVehiles();
+// CompareVehiles.prototype = BasePage;
+inheritator.inherits(BasePage, CompareVehiles);
+module.exports = CompareVehiles;

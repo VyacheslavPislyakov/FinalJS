@@ -9,6 +9,7 @@ exports.config = {
 		require: [
 			'step_definitions/*.js',
 			'support/*.js',
+			// 'support/world.js',
 		],
 		format: 'pretty'
 	},
@@ -32,7 +33,7 @@ exports.config = {
 	// 	}));
 	// });
 
-	
+
 
 
 };

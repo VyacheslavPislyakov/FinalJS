@@ -1,4 +1,5 @@
-var BasePage = require('./basePage');
+var inheritator = require('../../support/inheritance');
+var BasePage = require('./BasePage');
 var Helpers = require('../common/Helpers')
 
 function BuilderCarPage() {
@@ -62,5 +63,6 @@ function BuilderCarPage() {
 
 }
 
-BuilderCarPage.prototype = BasePage;
-module.exports = new BuilderCarPage();
+// BuilderCarPage.prototype = BasePage;
+inheritator.inherits(BasePage, BuilderCarPage);
+module.exports = BuilderCarPage;

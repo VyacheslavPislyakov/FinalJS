@@ -1,4 +1,5 @@
-var BasePage = require('./basePage')
+var inheritator = require('../../support/inheritance');
+var BasePage = require('./BasePage')
 var Helpers = require('../common/Helpers')
 
 function HomePage() {
@@ -36,5 +37,7 @@ function HomePage() {
 	}
 }
 
-HomePage.prototype = BasePage;
-module.exports = new HomePage();
+inheritator.inherits(BasePage, HomePage);
+
+// HomePage.prototype = BasePage;
+module.exports = HomePage;

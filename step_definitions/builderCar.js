@@ -1,6 +1,7 @@
 var expect = require('chai').expect;
 var {defineSupportCode} = require('cucumber');
-var builderCarPage = require('../po/page/builderCarPage');
+// var builderCarPage = require('../po/page/BuilderCarPage');
+var PageFactory = require('../po/page/PageFactory');
 
 defineSupportCode(({Given, When, Then}) => {
 	Then(/^I check EcoBoost$/, function () {
@@ -10,7 +11,7 @@ defineSupportCode(({Given, When, Then}) => {
 		// }).then(() =>{
 		// 	return elem.click();
 		// });
-		return builderCarPage.setFilterEcoBoost();
+		return PageFactory.getPage('build').setFilterEcoBoost();
 	});
 
 	Then(/^I check SUV & Crossover$/, function () {
@@ -20,7 +21,7 @@ defineSupportCode(({Given, When, Then}) => {
 		// }).then(() =>{
 		// 	return elem.click();
 		// });
-		return builderCarPage.setFilterSuvAndCrossover();
+		return PageFactory.getPage('build').setFilterSuvAndCrossover();
 	});
 
 	Then(/^I should choose EXPLORER$/, function () {
@@ -30,7 +31,7 @@ defineSupportCode(({Given, When, Then}) => {
 		// }).then(() =>{
 		// 	return elem.click();
 		// });
-		return builderCarPage.setExplorer();
+		return PageFactory.getPage('build').setExplorer();
 	});
 
 	When(/^I should insert ZIP CODE 14304$/, function () {
@@ -42,7 +43,7 @@ defineSupportCode(({Given, When, Then}) => {
 		// }).then(() => {
 		// 	return browser.actions().sendKeys(protractor.Key.ENTER).perform();
 		// });
-		return builderCarPage.insertZipCode();
+		return PageFactory.getPage('build').insertZipCode();
 	});
 
 	Then(/^I should see car$/, function () {
@@ -52,7 +53,7 @@ defineSupportCode(({Given, When, Then}) => {
 		// }).then(() => {
 		// 	return elem.click();
 		// });
-		return builderCarPage.showBuildYourOwnCar();
+		return PageFactory.getPage('build').showBuildYourOwnCar();
 	});
 
 	Then(/^I should see "([^"]*)" by "([^"]*)"$/, function (model, cost) {
@@ -67,11 +68,11 @@ defineSupportCode(({Given, When, Then}) => {
 		// 		expect(res).to.equal(cost)
 		// 	});
 		// });
-		
-		return builderCarPage.checkModel().then(resModel => {
+
+		return PageFactory.getPage('build').checkModel().then(resModel => {
 			return expect(resModel).to.equal(model);
 		}).then(() => {
-			return builderCarPage.checkCost().then(resCost => {
+			return PageFactory.getPage('build').checkCost().then(resCost => {
 				return expect(resCost).to.equal(cost);
 			})
 		})

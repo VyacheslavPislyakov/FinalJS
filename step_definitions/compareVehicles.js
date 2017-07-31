@@ -1,40 +1,42 @@
 var assert = require('chai').assert;
 var {defineSupportCode} = require('cucumber');
 
-var compareVehiclesPage = require('../po/page/compareVehiclesPage');
+// var compareVehiclesPage = require('../po/page/compareVehiclesPage');
+// var compareVehiclesPage = require('../po/page/PageFactory').getPage('compare');
+var PageFactory = require('../po/page/PageFactory');
 
 defineSupportCode(({Given, When, Then}) => {
 	When(/^I check EcoBoost for compare$/, function () {
-		return compareVehiclesPage.setFilterEcoBoost();
+		return PageFactory.getPage('compare').setFilterEcoBoost();
 	});
 
 	When(/^I check SUV & Crossover for compare$/, function () {
-		return compareVehiclesPage.setFilterSuvAndCrossover();
+		return PageFactory.getPage('compare').setFilterSuvAndCrossover();
 	});
 
 	Then(/^I should choose EXPLORER for compare$/, function () {
-		return compareVehiclesPage.chooseExplorerForCompare();
+		return PageFactory.getPage('compare').chooseExplorerForCompare();
 	});
 
 	When(/^I should choose second car for compare$/, function () {
-		return compareVehiclesPage.chooseSecondCarForCompare();
+		return PageFactory.getPage('compare').chooseSecondCarForCompare();
 	});
 
 	When(/^I should choose button for compare$/, function () {
-		return compareVehiclesPage.clickCompareButton();
+		return PageFactory.getPage('compare').clickCompareButton();
 	});
 
 	Then(/^I should see results of compare$/, function () {
-		return compareVehiclesPage.getCityConsumptionFirstModification()
+		return PageFactory.getPage('compare').getCityConsumptionFirstModification()
 		.then(res => {
-			return compareVehiclesPage.getCityConsumptionSecondModification()
+			return PageFactory.getPage('compare').getCityConsumptionSecondModification()
 			.then(res2 => {
 				return assert.isAbove(parseInt(res), parseInt(res2), 'Second car more economical fuel in city than first car')
 			})
 		}).then(() => {
-			return compareVehiclesPage.getHighwayConsumptionFirstModification()
+			return PageFactory.getPage('compare').getHighwayConsumptionFirstModification()
 			.then(res => {
-				return compareVehiclesPage.getHighwayConsumptionSecondModification()
+				return PageFactory.getPage('compare').getHighwayConsumptionSecondModification()
 				.then(res2 => {
 					return assert.isAbove(parseInt(res), parseInt(res2), 'Second car more economical fuel in highway than first car')
 				})
