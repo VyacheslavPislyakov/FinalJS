@@ -1,8 +1,6 @@
 var assert = require('chai').assert;
 var {defineSupportCode} = require('cucumber');
 
-// var compareVehiclesPage = require('../po/page/compareVehiclesPage');
-// var compareVehiclesPage = require('../po/page/PageFactory').getPage('compare');
 var PageFactory = require('../po/page/PageFactory');
 
 defineSupportCode(({Given, When, Then}) => {

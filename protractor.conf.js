@@ -9,7 +9,6 @@ exports.config = {
 		require: [
 			'step_definitions/*.js',
 			'support/*.js',
-			// 'support/world.js',
 		],
 		format: 'pretty'
 	},
@@ -19,6 +18,6 @@ exports.config = {
 
 	onPrepare: function() {
 		browser.manage().window().maximize();
-		// browser.manage().window().setSize(1200, 900);
+		// browser.manage().window().setSize(1200, 900); //for Firefox
 	}
 };

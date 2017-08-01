@@ -5,16 +5,7 @@ var Helpers = require('../common/Helpers')
 function BuilderCarPage() {
 
 	this.url = 'https://www.ford.com/showroom?linktype=build';
-
 	this.ZIPCODE = 14304;
-	// this.itemFilterEcoBoost = element.all(by.css('li:nth-child(2) > span > span.txt-label.ng-binding'));
-	// this.FilterSuvAndCrossover = element(by.css('li:nth-child(4) > span > span.txt-label.ng-binding'));
-	// this.carExplorer = element.all(by.css('strong[data-ng-bind-template="EXPLORER"]')).first();
-	// this.inputZipCode = element(by.css('div.zip-input-wrapper > input'));
-	// this.elementBuildYourOwnCar = element(by.css('div.cta-panel > div > img'));
-	// this.imageOfTheCar = element(by.css('div:nth-child(5) > img'));
-	// this.elementModificationOfTheCar = element(by.css('div.flex-parent.flex-left > div:nth-child(5) > div.centered-text > h4 > a > span'));
-	// this.elementCostOfTheCar = element(by.css('div:nth-child(5) > div.model-price-mileage > span:nth-child(1) > div'));
 
 	var elementsBuilderCarPage = {
 		itemFilterEcoBoost: {

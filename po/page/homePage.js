@@ -9,8 +9,6 @@ function HomePage() {
 
 	this.banner = element(by.id('IPEinvL'));
 	this.bannerButtonNo = element(by.id('no'));
-	// this.buttonLocateDealer  = element.all(by.css('li.lad> a > span:nth-child(2)')).first();
-	// this.buttonBuildAndPrice = element.all(by.css('h5.billboard-cta.text-center.m-text-center.col-xs-12')).last();
 
 	var elementsHomePage = {
 		buttonLocateDealer: {

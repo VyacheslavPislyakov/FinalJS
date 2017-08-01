@@ -6,16 +6,6 @@ function CompareVehiles() {
 
 	this.url = 'http://shop.ford.com/showroom?linktype=compare';
 
-	// this.itemFilterEcoBoost = element(by.css('div:nth-child(3) > div > ul > li:nth-child(2) > span > span.txt-label.ng-binding'));
-	// this.FilterSuvAndCrossover = element(by.css('div:nth-child(4) > div > ul > li:nth-child(4) > span > span.txt-label.ng-binding'));
-	// this.carExplorer = element.all(by.css('div:nth-child(3) > div > div.vehicle-title > div > strong')).first();
-	// this.secondCarForCompare = element.all(by.css('#trim384610 > div > div.image-checkbox > label > i')).first();
-	// this.buttonOfCompare = element.all(by.css('div:nth-child(1) > button')).first();
-	// this.cityConsumptionFirstModification = element(by.css('tr.d0:nth-child(10) > td:nth-child(2) > div:nth-child(2)'));
-	// this.cityConsumptionSecondModification = element(by.css('tr.d0:nth-child(10) > td:nth-child(3) > div:nth-child(1)'));
-	// this.highwayConsumptionFirstModification = element(by.css('tr.d1:nth-child(11) > td:nth-child(2) > div:nth-child(2)'));
-	// this.highwayConsumptionSecondModification = element(by.css('tr.d1:nth-child(11) > td:nth-child(3) > div:nth-child(1)'));
-
 	var elementsCompareVehiclesPage = {
 		itemFilterEcoBoost: {
 			locator: 'css',
