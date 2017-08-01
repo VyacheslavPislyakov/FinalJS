@@ -1,14 +1,23 @@
 # FinalJS
 
-Shop -> Compare Vehiles -> Escape 2017 -> 1 and 2 -> Compare -> Cost cars
----------------------------
+Запуск проекта:
+```
+webdriver-manager udpate
+```
 
-1)Переменные в объекты +
------------------------------
-2)Переделать require +
------------------------------
-3)export module без конструктора, а return из PF с конструктором return new pageMap[name](); +
------------------------------
-4)GULP + parametrs + 
-------------------------------
-5)
+Дальше запускаем сервер:
+```
+webdriver-manager start
+```
+
+Запускаем gulp со стандартными настройками
+
+```
+gulp runTest
+```
+
+Или запускаем gulp с параметрами
+
+```
+gulp runTest --browser=firefox
+```
